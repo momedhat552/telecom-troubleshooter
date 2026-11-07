@@ -1,0 +1,12 @@
+Why 5G signals drop indoors
+
+Indoor coverage is weaker than outdoor coverage because the signal must pass through walls, floors, windows and furniture. Each obstacle absorbs or reflects part of the signal, which is called penetration loss. ITU-R P.1238 reports that a typical reinforced concrete floor adds about 20 dB of extra loss at 5.2 GHz, and lighting fixtures can raise that to about 30 dB.
+
+Frequency makes this worse. Free-space path loss grows with frequency, so a signal at 3.5 GHz loses more power over the same distance than one at 700 MHz. Higher frequencies also penetrate building materials less well. This is why 5G mid-band (around 3.5 GHz) usually gives weaker indoor coverage than 4G low-band, and why millimetre-wave 5G (roughly 24 to 40 GHz) is often blocked by a single wall or a coated window. Millimetre-wave signals also depend on narrow beams, so they are very sensitive to obstacles and to people moving through the link.
+
+Ways to improve indoor 5G coverage:
+- Small cells placed inside the building, close to users.
+- Distributed antenna systems (DAS) and indoor repeaters.
+- Using lower-frequency 5G bands that penetrate walls better.
+- Wi-Fi calling, so voice does not depend on the cellular signal.
+- Placing the base station or router near a window or the centre of the floor.
