@@ -32,23 +32,25 @@ SYSTEM_PROMPT = (
 
 def run_agent(question, max_steps=5):
     messages = [SystemMessage(SYSTEM_PROMPT), HumanMessage(question)]
+    steps = []
     for _ in range(max_steps):
         response = llm_with_tools.invoke(messages)
         messages.append(response)
 
         if not response.tool_calls:
-            return response.text
+            return response.text, steps
 
         for call in response.tool_calls:
-            print(f"  [tool] {call['name']} {call['args']}")
             try:
                 result = tools_by_name[call["name"]].invoke(call["args"])
             except Exception as e:
                 result = f"Error: {e}"
+            steps.append({"tool": call["name"], "args": call["args"], "result": str(result)})
             messages.append(ToolMessage(content=str(result), tool_call_id=call["id"]))
 
-    return "Stopped: too many steps."
+    return "Stopped: too many steps.", steps
 
 
 if __name__ == "__main__":
-    print(run_agent("Who won the 2022 World Cup?"))
+    answer, steps = run_agent("What is the wavelength at 900 MHz?")
+    print(answer)
