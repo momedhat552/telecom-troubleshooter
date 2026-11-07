@@ -16,7 +16,7 @@ embeddings = HuggingFaceEmbeddings(model_name="BAAI/bge-small-en-v1.5")
 
 # not used yet, we need it when we build the agent
 llm = ChatGoogleGenerativeAI(
-    model="gemini-flash-lite-latest",
+    model=os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite"),
     google_api_key=os.getenv("GEMINI_API_KEY"),
 )
 
